@@ -28,6 +28,13 @@ defmodule GitDiffTest do
 
     assert patch.headers["rename to"] ==
              "package-phx_new-1.5.7-086C1921/my_app/assets/static/favicon.ico"
+
+    assert patch.original_headers == [
+             "diff --git a/tmp/foo/package-phx_new-1.0.0-BD5E394E/my_app/web/static/assets/favicon.ico b/tmp/foo/package-phx_new-1.5.7-086C1921/my_app/assets/static/favicon.ico",
+             "similarity index 100%",
+             "rename from /tmp/foo/package-phx_new-1.0.0-BD5E394E/my_app/web/static/assets/favicon.ico",
+             "rename to /tmp/foo/package-phx_new-1.5.7-086C1921/my_app/assets/static/favicon.ico"
+           ]
   end
 
   test "reads renames" do

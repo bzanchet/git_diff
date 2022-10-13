@@ -226,7 +226,8 @@ defmodule GitDiff do
       ["diff", "--git", "a/" <> file_a, "b/" <> file_b] ->
         process_diff_headers(
           %Patch{
-            headers: %{"file_a" => file_a, "file_b" => file_b}
+            headers: %{"file_a" => file_a, "file_b" => file_b},
+            original_headers: [header | headers]
           },
           headers,
           state
