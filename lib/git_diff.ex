@@ -256,8 +256,7 @@ defmodule GitDiff do
           %{
             patch
             | headers: Map.put(patch.headers, "new file mode", mode),
-              from: nil,
-              to: maybe_relative_to_rename("/" <> patch.headers["file_b"], state.relative_to)
+              to: maybe_relative_to(to_file("b/" <> patch.headers["file_b"]), state.relative_to)
           }
 
         "copy from mode " <> mode ->
@@ -351,7 +350,7 @@ defmodule GitDiff do
   defp maybe_relative_to(path, relative), do: Path.relative_to(path, relative)
 
   defp maybe_relative_to_rename(path, nil), do: path
-  defp maybe_relative_to_rename(path, relative), do: Path.relative_to(path, "/" <> relative)
+  defp maybe_relative_to_rename(path, relative), do: Path.relative_to("/" <> path, "/" <> relative)
 
   defp split_diff(diff) do
     chunk_fun = fn line, lines ->

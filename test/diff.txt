@@ -145,5 +145,5 @@ index 0000000..5008ddf
 Binary files /dev/null and b/lib/mix/tasks/.DS_Store differ
 diff --git a/tmp/foo/package-phx_new-1.0.0-BD5E394E/my_app/web/static/assets/favicon.ico b/tmp/foo/package-phx_new-1.5.7-086C1921/my_app/assets/static/favicon.ico
 similarity index 100%
-rename from /tmp/foo/package-phx_new-1.0.0-BD5E394E/my_app/web/static/assets/favicon.ico
-rename to /tmp/foo/package-phx_new-1.5.7-086C1921/my_app/assets/static/favicon.ico
+rename from tmp/foo/package-phx_new-1.0.0-BD5E394E/my_app/web/static/assets/favicon.ico
+rename to tmp/foo/package-phx_new-1.5.7-086C1921/my_app/assets/static/favicon.ico

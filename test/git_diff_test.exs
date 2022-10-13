@@ -32,8 +32,8 @@ defmodule GitDiffTest do
     assert patch.original_headers == [
              "diff --git a/tmp/foo/package-phx_new-1.0.0-BD5E394E/my_app/web/static/assets/favicon.ico b/tmp/foo/package-phx_new-1.5.7-086C1921/my_app/assets/static/favicon.ico",
              "similarity index 100%",
-             "rename from /tmp/foo/package-phx_new-1.0.0-BD5E394E/my_app/web/static/assets/favicon.ico",
-             "rename to /tmp/foo/package-phx_new-1.5.7-086C1921/my_app/assets/static/favicon.ico"
+             "rename from tmp/foo/package-phx_new-1.0.0-BD5E394E/my_app/web/static/assets/favicon.ico",
+             "rename to tmp/foo/package-phx_new-1.5.7-086C1921/my_app/assets/static/favicon.ico"
            ]
   end
 
@@ -45,15 +45,15 @@ defmodule GitDiffTest do
       |> List.last()
 
     assert patch.from ==
-             "/tmp/foo/package-phx_new-1.0.0-BD5E394E/my_app/web/static/assets/favicon.ico"
+             "tmp/foo/package-phx_new-1.0.0-BD5E394E/my_app/web/static/assets/favicon.ico"
 
-    assert patch.to == "/tmp/foo/package-phx_new-1.5.7-086C1921/my_app/assets/static/favicon.ico"
+    assert patch.to == "tmp/foo/package-phx_new-1.5.7-086C1921/my_app/assets/static/favicon.ico"
 
     assert patch.headers["rename from"] ==
-             "/tmp/foo/package-phx_new-1.0.0-BD5E394E/my_app/web/static/assets/favicon.ico"
+             "tmp/foo/package-phx_new-1.0.0-BD5E394E/my_app/web/static/assets/favicon.ico"
 
     assert patch.headers["rename to"] ==
-             "/tmp/foo/package-phx_new-1.5.7-086C1921/my_app/assets/static/favicon.ico"
+             "tmp/foo/package-phx_new-1.5.7-086C1921/my_app/assets/static/favicon.ico"
   end
 
   test "reads new files without content" do
@@ -64,7 +64,7 @@ defmodule GitDiffTest do
       |> List.last()
 
     assert patch.from == nil
-    assert patch.to == "/file_1.txt"
+    assert patch.to == "file_1.txt"
     assert patch.headers["file_a"] == "file_1.txt"
     assert patch.headers["file_b"] == "file_1.txt"
   end
